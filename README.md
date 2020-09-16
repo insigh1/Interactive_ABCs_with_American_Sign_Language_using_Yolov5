@@ -1,1 +1,1 @@
-# General_Assembly_Capstone
+# GA_Data_Science_Capstone
