@@ -2,3 +2,5 @@
 .ipynb_checkpoints
 # ignoring png
 *.png
+*.jpg
+*.jpeg
