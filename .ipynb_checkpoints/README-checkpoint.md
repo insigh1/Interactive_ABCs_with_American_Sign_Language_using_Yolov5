@@ -1,6 +1,6 @@
 # GA_Data_Science_Capstone
 ## Interactive ABC's, bringing Machine Learning and Sign Language together by improving accessability to learning utilizing computer vision.
-
+![Sign_Language_Alphabet](assets/alphabet.git)
 
 ### Interesting Facts About American Sign Language
 #### Source: https://isilanguagesolutions.com/2019/04/15/interesting-facts-about-american-sign-language/
