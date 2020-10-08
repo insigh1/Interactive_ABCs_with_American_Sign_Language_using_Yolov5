@@ -1,6 +1,6 @@
 # GA_Data_Science_Capstone
-## Interactive ABC's, bringing Machine Learning and Sign Language together by improving accessability to learning utilizing computer vision.
-![Sign_Language_Alphabet](assets/alphabet.git)
+## Interactive ABC's, bringing Machine Learning and Sign Language together by improving accessability to learning utilizing computer vision through Yolov5.
+![ASL_Demo](assets/alphabet.gif)
 
 ### Interesting Facts About American Sign Language
 #### Source: https://isilanguagesolutions.com/2019/04/15/interesting-facts-about-american-sign-language/
@@ -42,11 +42,4 @@ https://docs.google.com/document/d/1ChZPPr1dsHtgNqQ55a0FMngJj8PJbGgArm8xsiNYlRQ/
     While Google collab is easily accessible,  I'm attempting to create my working notebook on my Cuda enabled device.
 
 #### I already have a working instance of Yolov5 from Ultralytics, and have tested to be sure that it works.
-![](./Screenshots/yolo_me_example.png)
 
-I have installed labelImg and have started labeling my dataset, however it is very time consuming and tedious.
-![](./Screenshots/a_label.png)    
-
-    
-
-I plan on looking into opencv, and other tools to see if I can use an edge detection method to speed up the process of making bounding boxes for my images.
