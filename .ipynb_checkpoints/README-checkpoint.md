@@ -1,45 +1,92 @@
-# GA_Data_Science_Capstone
-## Interactive ABC's, bringing Machine Learning and Sign Language together by improving accessability to learning utilizing computer vision through Yolov5.
+### GA_Data_Science_Capstone_Project
+# Interactive ABC's with American Sign Language
+### A step in Increasing Accessability for the Deaf Community with Computer Vision utilizing Yolov5.
 ![ASL_Demo](assets/alphabet.gif)
 
-### Interesting Facts About American Sign Language
-#### Source: https://isilanguagesolutions.com/2019/04/15/interesting-facts-about-american-sign-language/
-    “Sign Language” isn’t universal. While individuals who don’t “speak” any language or speak a variety of languages can learn ASL, there are a variety of other sign languages used around the world.
+
+# Executive Summary
+Utilizing Yolov5, a custom computer vision model was created on the American Sign Language alphabet.  The project was promoted on social platforms to diversify the dataset. A total of 721 images were collected in the span of two weeks using DropBox request forms.  Manual labels were created of the original images which were then resized, and organized for preprocessing. Several carefully selected augmentations were made to the images to compensate for the small dataset count.  A total of 18,000 images were then used for modeling.  Transfer learning was incorporated with Yolov5m weights and training completed on 300 epochs with an image size of 1024 in 163 hours. A mean average precision score of 0.8527 was achieved.  Inference tests were successfully performed with areas identifying the models strengths and weaknesses for future development.  
+
+All operations were performed on my local Linux machine with a CUDA/cudNN setup using Pytorch.
+
+
+# Problem Statement:
+Have you ever considered how easy it is to perform simple communication tasks such as ordering food at a drive thru, discussing financial information with a banker, telling a physician your symptoms at a hospital, or even negotiating your wages from your employer?  What if there was a rule where you couldn’t speak and were only able to use your hands for each of these circumstances? The deaf community cannot do what most of the population take for granted and are often placed in degrading situations due to these challenges they face every day. Access to qualified interpretation services isn’t feasible in most cases leaving many in the deaf community with underemployment, social isolation, and public health challenges. To give these members of our community a greater voice, I have attempted to answer this question:
+
+
+**Can computer vision bridge the gap for the deaf and hard of hearing by learning American Sign Language?**
+
+In order to do this, a Yolov5 model was trained on the ASL alphabet.  If successful, it may mark a step in the right direction for both greater accessibility and educational resources.
+
+
+# Data Collection Method:
+The decision was made to create an original dataset for a few reasons.  The first was to mirror the intended environment on a mobile device or webcam.  These often have resolutions of 720 or 1080p. Several existing datasets have a low resolution and many do not include the letters “j” and “z” as they require movements.
+
+A letter request form was created with an introduction to my project along with instruction on how to submit voluntary sign language images with dropbox file request forms.  This was distributed on social platforms to bring awareness, and to collect data.
+
     
-    Even within ASL, there are both “slang” movements and slight regional distinctions in how letters and words are formed in American Sign Language.
-    
-    While “Fingerspelling” is a possibility, signing each individual letter in an English word, ASL actually uses a completely different grammar, “pronunciation,” and word order. If an interpreter is translating English into ASL, they will change the order, verb tense, or even word choice in order to move from the spoken language to the signed language.
-    
-    9 out of 10 children who are born deaf are born to parents who can hear, but even if parents are not initially fluent in sign language, their children often learn ASL fluently, due to the incredible ability of young children to learn languages.
-
-
-#### Source: https://www.alsglobal.net/blogs/2017/02/05/8-interesting-facts-about-american-sign-language-asl/
-
-Behind English, Spanish and Chinese, ALS is the fourth most widely used language in the US with around 2 million users.
-
-#### Source: https://www.verywellhealth.com/challenges-of-learning-sign-language-1049296
-
-With that being said, learning any language after a certain age is far more challenging than doing so when you are young.1﻿ Moreover, with sign language, you generally don't have the ability to immerse yourself in the language outside of the classroom. In many cases, your interaction may be limited to a single-family member who is deaf. If that person is a child, your goals and needs would be far different than if you were communicating with an adult. That can limit how fast or slowly you gain fluency in the language.
-
-Another challenge of learning sign language is that the average speed of communications in a social setting can often be overwhelming, particularly if you are in a group. It takes communications to a completely different level and demands that you master eye gazing to better navigate the give-and-take of communal interactions. 
-
-## Problem Statement:
-With nearly 90% of children born deaf to hearing parents, can machine learning bridge the gap for these communities in learning sign language more effectively in a fun environment through a computer vision app using Yolo v5? 
-
-The main goal in this project is to create a fun, game like environment that will test ones speed in learning the sign language alphabet using a webcam or mobile device.  By adding a few additional tools such as a timer to see how fast you can spell words may add to the experience, and help those that want to learn to perform this task with speed and accuracy.
-
-#### Data Collection Methods:
-http://empslocal.ex.ac.uk/people/staff/np331/index.php?section=FingerSpellingDataset
-[link](http://empslocal.ex.ac.uk/people/staff/np331/index.php?section=FingerSpellingDataset (over 60,000 images))
-    
-#### Dropbox request form: (Deadline Sep. 27th)
+#### Dropbox request form used: (Deadline Sep. 27th, 2020)
 https://docs.google.com/document/d/1ChZPPr1dsHtgNqQ55a0FMngJj8PJbGgArm8xsiNYlRQ/edit?usp=sharing
 [link](https://docs.google.com/document/d/1ChZPPr1dsHtgNqQ55a0FMngJj8PJbGgArm8xsiNYlRQ/edit?usp=sharing)
     
-    
+A total of 720 images were collected:
 
-### Proposed Methods:
-    While Google collab is easily accessible,  I'm attempting to create my working notebook on my Cuda enabled device.
+Here is the distributions of images: (Letters / Counts)
 
-#### I already have a working instance of Yolov5 from Ultralytics, and have tested to be sure that it works.
+A - 29  
+B - 25  
+C - 25  
+D - 28  
+E - 25  
+F - 30  
+G - 30  
+H - 29  
+I - 30  
+J - 38  
+K - 27  
+L - 28  
+M - 28  
+N - 27  
+O - 28  
+P - 25  
+Q - 26  
+R - 25  
+S - 30  
+T - 25  
+U - 25  
+V - 28  
+W - 27  
+X - 26  
+Y - 26  
+Z - 30  
+
+# Preproccessing
+### Labeling the images
+Manual bounding box labels were created on the original images using the labelImg software.
+
+Each of the pictures and bounding box coordinates were then passed through an albumentations pipeline that resized the images to 1024 x 1024 pixel squares and added probabilities of different transformations.
+
+These transformations included specified degrees of rotations, shifts in the image locations, blurs, horizontal flips, random erase, and a variety of other color transformations.  
+  
+![](assets/augmentations_slide.png)
+
+
+25 augmented images were created for each image resulting in an image set of 18,000 used for modeling.
+
+
+# Modeling: Yolov5
+To address acceptable inference speeds and size, Yolov5 was chosen for modeling. 
+
+This was released in June 10th of this year, and is still in active development.  Although Yolov5 by Ultralytics is not created by the original Yolo authors, Yolo v5 is said to be faster and more lightweight, with accuracy on par with Yolo v4 which is widely considered as the fastest and most accurate real-time object detection model.
+
+![](assets/Yolov5_explanation.png)
+
+Yolo was designed as a convolutional neural network for real time object detection.  Its more complex than basic classification as object detection needs to identify the objects and locate where it is on the image. This single stage object detector, has 3 main components:
+
+The backbone basically extracts important features of an image,  the neck mainly uses feature pyramids which help in generalizing the object scaling for better performance on unseen data.  The model head does the actual detection part where anchor boxes are applied on features that generate output vectors.
+These vectors include the class probabilities, the objectness scores, and bounding boxes.
+
+
+The model used was yolov5m with transfer learning on pretrained weights.
+
 
