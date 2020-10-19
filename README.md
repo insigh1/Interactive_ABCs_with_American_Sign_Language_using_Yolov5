@@ -146,24 +146,24 @@ Letters that were incorrectly predicted were:
 “R” predicted as “U”  
 
 
-## **Video Findings:**
+## **Video Findings:**  
 ==============================================================  
 **Left-handed:**  
-This test shows that our image augmentation pipeline performed well as it was set to flip the images horizontally at a 50% probability.
+This test shows that our image augmentation pipeline performed well as it was set to flip the images horizontally at a 50% probability.  
 ![](assets/left_handed.gif)  
 ==============================================================  
 **Child's hand:**
-The test on my son's hand was performed, and the model still performs well here.
+The test on my son's hand was performed, and the model still performs well here.  
 ![](assets/son_name.gif)
 ==============================================================  
 **Multiple letters on screen:**  
-Simultaneous letters were also  detected. Although sign language is not used like the video on the right, it shows that multiple people can be on screen and the model will be able to distinguish more than one instance of the language.
+Simultaneous letters were also  detected. Although sign language is not used like the video on the right, it shows that multiple people can be on screen and the model will be able to distinguish more than one instance of the language.  
 ![](assets/hi_screen_record.gif)   
 ==============================================================   
-## **Video Limitations:**
+## **Video Limitations:**  
 ==============================================================  
-**Distance**
-There were limitations I’ve discovered in my model. The biggest one is distance.  As many of the original pictures were taken from my phone on my hands, the distance of my hand to the camera was very close, negatively impacting inference at further distances.
+**Distance**  
+There were limitations I’ve discovered in my model. The biggest one is distance.  As many of the original pictures were taken from my phone on my hands, the distance of my hand to the camera was very close, negatively impacting inference at further distances.  
 
 ![](assets/distance_limitation.gif)  
 
@@ -201,7 +201,7 @@ I believe computer vision can help give our deaf and hard of hearing neighbors a
 
 - [Back to Contents](#contents)
 <a name="cite"></a>
-# **Citations**
+# **Citations**  
 Python Version: 3.8  
 Packages: pandas, numpy, matplotlib, sklearn, opencv, os, ast, albumentations, tqdm, torch, IPython, PIL, shutil
 
