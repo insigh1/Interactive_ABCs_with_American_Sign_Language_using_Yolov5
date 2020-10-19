@@ -147,18 +147,22 @@ Letters that were incorrectly predicted were:
 
 
 ## **Video Findings:**  
+
 ==============================================================  
 **Left-handed:**  
 This test shows that our image augmentation pipeline performed well as it was set to flip the images horizontally at a 50% probability.  
 ![](assets/left_handed.gif)  
+
 ==============================================================  
 **Child's hand:**
 The test on my son's hand was performed, and the model still performs well here.  
 ![](assets/son_name.gif)
+
 ==============================================================  
 **Multiple letters on screen:**  
 Simultaneous letters were also  detected. Although sign language is not used like the video on the right, it shows that multiple people can be on screen and the model will be able to distinguish more than one instance of the language.  
 ![](assets/hi_screen_record.gif)   
+
 ==============================================================   
 ## **Video Limitations:**  
 ==============================================================  
